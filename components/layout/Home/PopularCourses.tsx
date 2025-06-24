@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useRouter } from 'expo-router';
 
 interface Course {
   id: string;
@@ -70,21 +71,39 @@ const courses: Course[] = [
     rating: 4.3,
     reviews: 743,
     lessons: 14,
-  }
+  },
 ];
 
+export default function PopularCourses() {
+  const router = useRouter();
 
-const PopularCourses = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Popular courses</Text>
+      <Text style={styles.header}>Popular Courses</Text>
       <FlatList
         data={courses}
         horizontal
-        showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id}
+        showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
-          <View style={styles.card}>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() =>
+              router.push({
+                pathname: '/course/[id]',
+                params: {
+                  id: item.id,
+                  title: item.title,
+                  author: item.author,
+                  price: item.price,
+                  rating: item.rating.toString(),
+                  reviews: item.reviews.toString(),
+                  lessons: item.lessons.toString(),
+                  bestSeller: item.bestSeller ? 'true' : 'false',
+                },
+              })
+            }
+          >
             {item.bestSeller && (
               <View style={styles.badge}>
                 <Text style={styles.badgeText}>Best-seller</Text>
@@ -106,22 +125,21 @@ const PopularCourses = () => {
             <TouchableOpacity style={styles.bookmarkIcon}>
               <Icon name="bookmark-o" size={20} color="#000" />
             </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
         )}
       />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
-    margin: 16,
+    padding: 16,
   },
   header: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 20,
+    fontWeight: 'bold',
     marginBottom: 12,
-    color: '#222',
   },
   card: {
     backgroundColor: '#fff',
@@ -136,7 +154,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 8,
     left: 8,
-    backgroundColor: '#d1d1d1',
+    backgroundColor: '#ffb703',
     borderRadius: 6,
     paddingHorizontal: 6,
     paddingVertical: 2,
@@ -144,7 +162,8 @@ const styles = StyleSheet.create({
   },
   badgeText: {
     fontSize: 10,
-    color: '#333',
+    color: '#fff',
+    fontWeight: 'bold',
   },
   imagePlaceholder: {
     height: 100,
@@ -189,5 +208,3 @@ const styles = StyleSheet.create({
     right: 8,
   },
 });
-
-export default PopularCourses;

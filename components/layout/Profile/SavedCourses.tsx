@@ -55,7 +55,7 @@ const SavedCourses = () => {
   const renderItem = ({ item }: { item: Course }) => (
     <View style={styles.card}>
       <Image
-        source={require('./placeholder.png')} // Replace with your placeholder image path
+        source={require('@/assets/images/icon.png')} // Replace with your placeholder image path
         style={styles.thumbnail}
       />
       <View style={styles.details}>

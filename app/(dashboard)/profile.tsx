@@ -1,4 +1,4 @@
-import ProfileScreen from './search';
+import ProfileScreen from "@/components/screens/ProfileScreen";
 
 export default function Courses() {
   return <ProfileScreen />;

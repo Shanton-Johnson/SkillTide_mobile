@@ -79,7 +79,12 @@ export default function PopularCourses() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Popular Courses</Text>
+      <View style={styles.headerRow}> 
+        <Text style={styles.header}>Popular Courses</Text>
+        <TouchableOpacity>
+          <Text style={styles.viewMore}>View more</Text>
+        </TouchableOpacity>
+      </View>
       <FlatList
         data={courses}
         horizontal
@@ -207,4 +212,13 @@ const styles = StyleSheet.create({
     top: 8,
     right: 8,
   },
+  viewMore: {
+    fontSize: 14,
+    color: '#0066cc',
+  },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+  }
 });

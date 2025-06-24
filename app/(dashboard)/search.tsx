@@ -1,14 +1,5 @@
-import { View, Text, StyleSheet } from 'react-native';
+import SearchScreen from '@/components/screens/SearchScreen';
 
-export default function SearchScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>🔍 Search Screen</Text>
-    </View>
-  );
+export default function ProfileScreen() {
+  return <SearchScreen />;
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  text: { fontSize: 20, fontWeight: 'bold' },
-});

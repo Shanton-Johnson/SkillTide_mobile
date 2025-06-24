@@ -1,10 +1,5 @@
-import HomeScreen from "@/components/feature/HomeScreen"
-import { Text, View } from "react-native";
+import HomeScreen from "@/components/screens/HomeScreen";
 
-export default function Index() {
-  return (
-    <View>
-        <HomeScreen />
-    </View>
-  );
+export default function Courses() {
+  return <HomeScreen />;
 }

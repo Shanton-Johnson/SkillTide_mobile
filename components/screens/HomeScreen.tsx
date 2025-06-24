@@ -7,7 +7,7 @@ import RecommendedCourses from "../layout/Home/RecommendedCourses";
 import InspiringCourses from "../layout/Home/InspiringCourses";
 import TopTeachers from "../layout/Home/TopTeachers";
 
-export default function Index() {
+export default function HomeScreen() {
   // Define sections as data items for FlatList
   const sections = [
     { key: "header", render: () => <Header /> },

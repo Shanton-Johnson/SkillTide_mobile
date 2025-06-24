@@ -7,7 +7,7 @@ import {
   ListRenderItem,
 } from "react-native";
 
-import HeroSection from "@/components/layout/Home/HeroSection";
+import HeroSection from "@/components/layout/MyCourses/Hero";
 import CourseList from "@/components/layout/MyCourses/CourseList";
 
 const components = [

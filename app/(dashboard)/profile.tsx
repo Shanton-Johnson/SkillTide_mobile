@@ -1,3 +1,4 @@
+// app/(dashboard)/profile.tsx
 import React from "react";
 import {
   SafeAreaView,

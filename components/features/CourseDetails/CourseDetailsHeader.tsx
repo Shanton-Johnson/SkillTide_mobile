@@ -1,3 +1,4 @@
+// components/features/CourseDetails/CourseDetailsHeader.tsx
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons, Entypo } from '@expo/vector-icons';

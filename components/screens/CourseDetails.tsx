@@ -1,3 +1,4 @@
+// components/layout/screens/CourseDetails.tsx
 import React from "react";
 import {
   SafeAreaView,

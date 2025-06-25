@@ -1,3 +1,4 @@
+// components/layout/Search/Categories.tsx
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, FlatList } from "react-native";
 import { Ionicons, MaterialIcons, FontAwesome5, Entypo } from "@expo/vector-icons"; // You can adjust icon libraries as needed

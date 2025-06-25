@@ -1,3 +1,4 @@
+// app/(dashboard)/courses.tsx
 import React from "react";
 import {
   SafeAreaView,

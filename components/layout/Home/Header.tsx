@@ -1,3 +1,4 @@
+// components/layout/Home/Header.tsx
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather'; // You can also use FontAwesome or MaterialIcons

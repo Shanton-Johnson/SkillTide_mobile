@@ -1,3 +1,4 @@
+// app/(dashboard)/search.tsx
 import React from "react";
 import { FlatList, SafeAreaView, View, StyleSheet } from "react-native";
 import SearchBarWithFilter from "@/components/layout/Search/SearchBar";

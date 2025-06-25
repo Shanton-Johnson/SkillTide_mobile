@@ -1,3 +1,4 @@
+// components/features/CourseDetails/CourseHero.tsx
 import React, { useRef, useState } from "react";
 import {
   View,

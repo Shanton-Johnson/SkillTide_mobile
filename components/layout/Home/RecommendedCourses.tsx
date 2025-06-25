@@ -1,3 +1,4 @@
+// components/layout/Home/RecommendedCourses.tsx
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';

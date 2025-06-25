@@ -1,3 +1,4 @@
+// components/features/CourseList.tsx
 import React from 'react';
 import {
   View,

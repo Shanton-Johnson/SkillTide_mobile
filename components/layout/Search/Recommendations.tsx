@@ -1,3 +1,4 @@
+// components/layout/Search/Recommendations.tsx
 import React from 'react';
 import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 

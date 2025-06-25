@@ -1,3 +1,4 @@
+// components/layout/Profile/SavedCourses.tsx
 import React from 'react';
 import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';

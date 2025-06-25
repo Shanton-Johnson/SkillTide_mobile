@@ -1,3 +1,4 @@
+// components/layout/MyCourses/CourseList.tsx
 import React, { useState } from 'react';
 import {
   View,

@@ -1,3 +1,4 @@
+// app/(dashboard)/index.tsx
 import React from "react";
 import { FlatList } from "react-native";
 import Header from "@/components/layout/Home/Header";

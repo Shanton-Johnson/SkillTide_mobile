@@ -1,3 +1,4 @@
+// components/layout/Home/CategoriesGrid.tsx
 import React from 'react';
 import {
   View,

@@ -1,7 +1,15 @@
 // components/layout/Home/InspiringCourses.tsx
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+  Pressable,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useRouter } from 'expo-router';
 
 interface Course {
   id: string;
@@ -44,6 +52,15 @@ const inspiringCourses: Course[] = [
 ];
 
 const InspiringCourses = () => {
+  const router = useRouter();
+
+  const handlePress = (course: Course) => {
+    router.push({
+      pathname: '/course/[id]',
+      params: { id: course.id, title: course.title },
+    });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
@@ -56,7 +73,11 @@ const InspiringCourses = () => {
         data={inspiringCourses}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.card}>
+          <Pressable
+            style={styles.card}
+            android_ripple={{ color: '#ddd' }}
+            onPress={() => handlePress(item)}
+          >
             <View style={styles.imagePlaceholder} />
             <View style={styles.infoContainer}>
               <Text style={styles.title}>{item.title}</Text>
@@ -73,7 +94,7 @@ const InspiringCourses = () => {
             <TouchableOpacity style={styles.bookmarkIcon}>
               <Icon name="bookmark-o" size={20} color="#000" />
             </TouchableOpacity>
-          </View>
+          </Pressable>
         )}
         ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
       />
@@ -107,6 +128,7 @@ const styles = StyleSheet.create({
     padding: 10,
     position: 'relative',
     elevation: 2,
+    overflow: 'hidden',
   },
   imagePlaceholder: {
     width: 70,

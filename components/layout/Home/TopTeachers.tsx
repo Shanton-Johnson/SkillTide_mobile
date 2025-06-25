@@ -1,6 +1,12 @@
-// components/layout/Home/TopTeachers.tsx
 import React from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  Pressable,
+} from 'react-native';
+import { useRouter } from 'expo-router';
 
 interface Teacher {
   name: string;
@@ -31,6 +37,8 @@ const teachers: Teacher[] = [
 ];
 
 const TopTeachers = () => {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -38,9 +46,25 @@ const TopTeachers = () => {
         <Text style={styles.viewMore}>View more</Text>
       </View>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ paddingRight: 16 }}
+      >
         {teachers.map((teacher, index) => (
-          <View style={styles.card} key={index}>
+          <Pressable
+            key={index}
+            onPress={() =>
+              router.push({
+                pathname: "/teacher/[name]",
+                params: { name: teacher.name },
+              })
+            }
+            style={({ pressed }) => [
+              styles.card,
+              pressed && styles.cardPressed,
+            ]}
+          >
             <View style={styles.imagePlaceholder}>
               <Text style={styles.imageIcon}>🖼️</Text>
             </View>
@@ -49,7 +73,7 @@ const TopTeachers = () => {
             <Text style={styles.rating}>
               ⭐ {teacher.rating} ({teacher.reviews})
             </Text>
-          </View>
+          </Pressable>
         ))}
       </ScrollView>
     </View>
@@ -65,51 +89,58 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 12,
+    marginBottom: 16,
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#222',
   },
   viewMore: {
     fontSize: 14,
     color: '#888',
   },
   card: {
-    width: 160,
+    width: 180,
     marginRight: 16,
     backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 12,
+    borderRadius: 16,
+    padding: 16,
     shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    elevation: 3,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  cardPressed: {
+    opacity: 0.85,
+    transform: [{ scale: 0.97 }],
+    shadowOpacity: 0.15,
   },
   imagePlaceholder: {
-    backgroundColor: '#eee',
-    height: 80,
-    borderRadius: 6,
+    backgroundColor: '#f0f0f0',
+    height: 100,
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 12,
   },
   imageIcon: {
-    fontSize: 24,
+    fontSize: 28,
   },
   name: {
-    fontWeight: 'bold',
-    fontSize: 14,
-    marginBottom: 2,
+    fontWeight: '600',
+    fontSize: 16,
+    marginBottom: 4,
+    color: '#222',
   },
   university: {
-    fontSize: 12,
-    color: '#444',
-    marginBottom: 6,
+    fontSize: 13,
+    color: '#666',
+    marginBottom: 8,
   },
   rating: {
-    fontSize: 12,
-    color: '#444',
+    fontSize: 13,
+    color: '#333',
   },
 });
